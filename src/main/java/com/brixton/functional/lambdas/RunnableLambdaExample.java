@@ -12,9 +12,10 @@ public class RunnableLambdaExample {
 		};
 		
 		new Thread(t1).start();
-		
+
 		// After
 		Runnable t2 = () -> {System.out.println("Thread 2");};
+		Runnable tx = () -> System.out.println("Thread 2");
 		new Thread(t2).start();
 		
 		Runnable t3 = () -> {System.out.println("Thread 3");
@@ -31,12 +32,32 @@ public class RunnableLambdaExample {
 				
 			}
 		}).start();
+
+		new Thread(t2);
+		new Thread(() -> {System.out.println("Thread 2");});
+		new Thread(() -> System.out.println("Thread 2"));
+
 		
 		new Thread(() -> {
 			System.out.println("Thread 5");
 			System.out.println("Thread 5.1");
 		}).start();
+
+
+
+
+
+
+
+
 	}
+
+	public int sumar(int inputA, int inputB) {
+		System.out.println("voy a sumar: " + inputA + " + " + inputB);
+		int suma = inputA + inputB;
+		return suma;
+	}
+
 	
 	
 
