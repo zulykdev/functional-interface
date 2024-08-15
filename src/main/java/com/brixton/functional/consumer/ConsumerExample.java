@@ -8,16 +8,16 @@ import java.util.function.Consumer;
 public class ConsumerExample {
 
 	public static void main(String[] args) {
-		Consumer<String> con1 = (s) -> {System.out.println(s.toUpperCase());};
-		Consumer<String> con2 = (s) -> {System.out.println(s.toLowerCase());};
-		Consumer<String> con3 = (s) -> {System.out.println(s.length());};
+		Consumer<String> mayuscula = (input) -> {System.out.println(input.toUpperCase());};
+		Consumer<String> minuscula = (s) -> {System.out.println(s.toLowerCase());};
+		Consumer<String> cuenta = (s) -> {System.out.println(s.length());};
 
 		//con1.accept("hans");
 
 		//con2.accept("YOSELIN");
 
-		con1.andThen(con2).accept("hans");
-		con1.andThen(con3).andThen(con2).accept("YoSeLin");
+		mayuscula.andThen(minuscula).accept("hans");
+		mayuscula.andThen(cuenta).andThen(minuscula).accept("YoSeLin");
 
 		Persona x = new Persona();
 		x.procesaLambdas("EduarDO");

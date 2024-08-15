@@ -23,11 +23,6 @@ public class Persona {
 
     Function<LocalDate, Integer> calculaEdad = (fnac) -> { LocalDate fechaActual = LocalDate.now();
         Period periodo = Period.between(fnac, fechaActual);
-        try {
-        getNombreCompleto();
-        } catch (Exception ex) {
-            return 0;
-        }
         return periodo.getYears();
     };
 
@@ -35,7 +30,7 @@ public class Persona {
         return getNombre() + " " + getApellidos();
     }
 
-    public int calcularEdad() {
+    public int calcularEdad(LocalDate fechaNacimiento) {
         LocalDate fechaActual = LocalDate.now();
         Period periodo = Period.between(fechaNacimiento, fechaActual);
         return periodo.getYears();

@@ -1,9 +1,13 @@
 package com.brixton.functional.lambdas;
 
+import java.time.LocalDate;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class LambdaStarter {
+
+    private String myName;
+    private static BiFunction<Integer, Integer, Double> sumaOptimizada = (inputA, inputB) -> (double)(inputA + inputB);
 
     public static void main(String[] args) {
 
@@ -39,7 +43,16 @@ public class LambdaStarter {
         System.out.println("IMPRIMIENDO USO DE LAMBDAS");
         //USO
         Double x = operacionSuma.apply(1, 6);
+        Double z = sumaOptimizada.apply(9, 8);
+        System.out.println(z);
         Double y = operacionSumaHasta6Numeros.apply(new Numeros(1,2,3,4,5,6));
+
+        System.out.println("EDADES");
+        Persona per = new Persona();
+        System.out.println("edad1: " + per.calcularEdad(LocalDate.of(2000, 9, 15)));
+
+        System.out.println("edad2: " + per.calculaEdad.apply(LocalDate.of(2000, 9, 15)));
+
     }
 
     //DEFINICION DE METODO
@@ -49,6 +62,7 @@ public class LambdaStarter {
         System.out.println("suma es = " + suma);
         return suma;
     }
+
 
     public static int sumarLimpio(int inputA, int inputB) {
         return inputA + inputB;
