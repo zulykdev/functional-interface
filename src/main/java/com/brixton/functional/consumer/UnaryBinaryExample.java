@@ -6,7 +6,8 @@ import java.util.function.UnaryOperator;
 
 public class UnaryBinaryExample {
 	
-	static UnaryOperator<String> uo1 = name -> name.toUpperCase();
+	static UnaryOperator<String> uo1 = name -> { name.length();
+		return name.toUpperCase();};
 	static UnaryOperator<Integer> uo2 = a -> a+10;
 	static Comparator<Integer> comp = (a,b) -> a.compareTo(b);
 	public static void main(String[] args) {
